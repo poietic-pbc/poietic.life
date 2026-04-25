@@ -3,11 +3,9 @@
 Landing page for [Poietic PBC](https://poietic.life), a public benefit
 corporation building open-source infrastructure for hybrid human-AI science.
 
-This is a [GitHub Pages org site](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites),
-served from this repository's `main` branch:
-
-- Default URL: https://poietic-pbc.github.io/
-- Custom domain: https://poietic.life (configured via `CNAME`)
+Served from this repository's `main` branch via
+[GitHub Pages](https://docs.github.com/en/pages), reachable at
+https://poietic.life (custom domain configured via `CNAME`).
 
 ## Files
 
@@ -26,16 +24,15 @@ losing the zero-build property.
 
 ## DNS for the custom domain
 
-At the `poietic.life` registrar, set:
+At the `poietic.life` registrar, set four A records at the apex
+(`poietic.life`) pointing to GitHub Pages:
 
-- `ALIAS` or `ANAME` at the apex (`poietic.life`) pointing to
-  `poietic-pbc.github.io`. If the registrar does not support ALIAS/ANAME,
-  use four A records to GitHub Pages IPs:
-    - 185.199.108.153
-    - 185.199.109.153
-    - 185.199.110.153
-    - 185.199.111.153
-- `CNAME` for `www.poietic.life` pointing to `poietic-pbc.github.io`.
+- 185.199.108.153
+- 185.199.109.153
+- 185.199.110.153
+- 185.199.111.153
+
+For `www.poietic.life`, add a `CNAME` record pointing to `poietic.life`.
 
 Then, in this repository's Settings → Pages, verify the custom domain is
 recognized and enable "Enforce HTTPS" once GitHub has provisioned the cert.
