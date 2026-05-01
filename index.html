@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poietic — infrastructure for hybrid human-AI science</title>
+<title>Poietic · infrastructure for hybrid human-AI science</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -336,6 +336,39 @@
   .btn .arrow { transition: transform 0.2s; }
   .btn:hover .arrow { transform: translateX(3px); }
 
+  .repo-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 24px;
+    max-width: 560px;
+  }
+  @media (max-width: 640px) {
+    .repo-stats { grid-template-columns: 1fr; }
+  }
+  .repo-stat {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 12px 14px;
+  }
+  .repo-stat strong {
+    display: block;
+    font-size: 20px;
+    line-height: 1.1;
+    color: var(--fg);
+    font-weight: 500;
+    letter-spacing: -0.4px;
+  }
+  .repo-stat span {
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+  }
+
   /* ============ GRAPH VISUALIZATION ============ */
   .graph-wrap {
     position: relative;
@@ -410,6 +443,35 @@
     height: 100%;
   }
 
+  .graph-terminal {
+    position: absolute;
+    inset: 58px 30px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .graph-terminal pre {
+    width: 100%;
+    margin: 0;
+    padding: 20px 16px;
+    border: 1px solid var(--border-2);
+    border-radius: 4px;
+    background: color-mix(in oklab, var(--bg) 88%, var(--accent) 4%);
+    color: var(--fg-dim);
+    font-family: var(--mono);
+    font-size: clamp(10px, 1.45vw, 13px);
+    line-height: 1.35;
+    text-align: center;
+    white-space: pre;
+    box-shadow: inset 0 0 24px rgba(0,0,0,0.24);
+  }
+  .graph-terminal .active { color: var(--accent); }
+  @media (max-width: 520px) {
+    .graph-terminal { inset: 54px 18px 54px; }
+    .graph-terminal pre { font-size: 9px; padding: 16px 8px; }
+  }
+
   /* node styles */
   .node-ring { fill: none; stroke: var(--border-2); stroke-width: 1; }
   .node-fill { fill: var(--bg-2); stroke: var(--accent-deep); stroke-width: 1; }
@@ -474,10 +536,12 @@
     color: var(--fg-dim);
     font-weight: 300;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 12px;
+    flex-wrap: wrap;
     pointer-events: none;
   }
+  .graph-readout span:last-child { text-align: right; }
   .graph-readout .muted { color: var(--muted); }
   .graph-readout .accent { color: var(--accent); }
   .caret {
@@ -563,6 +627,50 @@
     font-weight: 500;
   }
 
+  /* ============ PUBLIC BENEFIT ============ */
+  .benefit-quote {
+    border: 1px solid var(--border-2);
+    border-left: 2px solid var(--accent);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 28px 30px 22px;
+    position: relative;
+  }
+  .benefit-quote::before {
+    content: "// filed delaware · 2026-04-13";
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+  .benefit-quote p {
+    color: var(--fg-dim);
+    font-size: 13.5px;
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    text-wrap: pretty;
+  }
+  .benefit-specific {
+    color: var(--fg) !important;
+    font-family: var(--serif);
+    font-size: clamp(17px, 1.6vw, 20px) !important;
+    line-height: 1.45 !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.2px;
+    border-top: 1px dashed var(--border-2);
+    padding-top: 16px;
+  }
+  .benefit-source {
+    margin-top: 8px;
+    font-size: 10.5px;
+    color: var(--muted);
+    letter-spacing: 0.4px;
+    font-weight: 300;
+  }
+
   /* ============ WHAT WE'VE BUILT ============ */
   .built-lead {
     color: var(--fg-dim);
@@ -630,6 +738,15 @@
     font-weight: 300;
     line-height: 1.6;
   }
+  .built-desc .phr-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--fg-dim);
+    border-bottom: 1px dashed var(--accent-deep);
+    letter-spacing: 0.3px;
+  }
+  .built-desc .phr-link:hover { color: var(--accent); border-color: var(--accent); }
 
   .built-status {
     margin-top: 16px;
@@ -859,6 +976,7 @@
       <a href="#mission">mission</a>
       <a href="#built">what we've built</a>
       <a href="#founders">founders</a>
+      <a href="https://graphwork.github.io/">workgraph ↗</a>
       <a href="https://github.com/graphwork/workgraph">github ↗</a>
     </div>
     <div class="nav-status">
@@ -872,7 +990,7 @@
 <section class="shell">
   <div class="hero">
     <div class="hero-copy">
-      <div class="hero-label">Poietic PBC — est. 2026</div>
+      <div class="hero-label">Poietic PBC · est. 2026</div>
       <h1>
         Infrastructure for <i>hybrid</i><br>
         human &amp; AI <span class="mono">science</span>.
@@ -884,19 +1002,38 @@
       </p>
 
       <div class="hero-cta">
-        <a class="btn primary" href="https://github.com/graphwork/workgraph">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+        <a class="btn primary" href="https://graphwork.github.io/">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+            <path d="M3 2 H10 L13 5 V14 H3 Z"/>
+            <path d="M10 2 V5 H13"/>
+            <path d="M5 8 H11"/>
+            <path d="M5 10.5 H11"/>
+            <path d="M5 13 H9"/>
           </svg>
-          View on GitHub
+          Open WorkGraph
           <span class="arrow">→</span>
         </a>
         <a class="btn" href="#mission">Read the mission</a>
       </div>
 
       <div class="hero-meta">
-        <span><span class="tag">MIT</span> 93+ commits · Rust · open-source</span>
-        <span><span class="tag">v0.1</span> workgraph — live and coordinating real work</span>
+        <span><span class="tag">MIT</span> 2,091 commits · Rust · open-source</span>
+        <span><span class="tag">v0.1</span> workgraph, live and coordinating real work</span>
+      </div>
+
+      <div class="repo-stats" aria-label="WorkGraph repository statistics">
+        <div class="repo-stat">
+          <strong>2,091</strong>
+          <span>actual commits</span>
+        </div>
+        <div class="repo-stat">
+          <strong>263,112</strong>
+          <span>source lines</span>
+        </div>
+        <div class="repo-stat">
+          <strong>83,196</strong>
+          <span>test lines</span>
+        </div>
       </div>
 
       <div class="logo-legend" aria-label="Logo legend: human, task, agent">
@@ -915,111 +1052,27 @@
       <div class="graph-corner bl"></div>
       <div class="graph-grid"></div>
 
-      <div class="graph-coord tl">graph://workgraph</div>
-      <div class="graph-coord tr">nodes 9 · edges 11</div>
-      <div class="graph-coord bl">agents: 2 · humans: 2</div>
+      <div class="graph-coord tl">wg --dir .wg viz revert-redo-fix --graph</div>
+      <div class="graph-coord tr">real workgraph output</div>
+      <div class="graph-coord bl">repo: graphwork/workgraph</div>
       <div class="graph-coord br">● live</div>
 
-      <svg class="graph-svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
-        <!-- edges: drawn first so nodes sit on top -->
-        <g id="edges">
-          <!-- Layout:
-               N0 (root)  ──►  N1  ──►  N3 ──►  N6
-                               │  ╲         ╲
-                               ▼    ▼         ▼
-                               N2   N4 ──►  N7
-                                     │         │
-                                     ▼         ▼
-                               N5 ──►───────► N8
-          -->
-          <!-- static background edges -->
-          <path class="edge" d="M 125 110 C 170 110 180 170 215 170" />
-          <path class="edge" d="M 245 195 C 245 235 245 255 245 285" />
-          <path class="edge" d="M 265 190 C 305 190 315 190 355 190" />
-          <path class="edge" d="M 265 200 C 305 240 315 260 345 290" />
-          <path class="edge" d="M 375 215 C 395 235 400 260 400 290" />
-          <path class="edge" d="M 375 320 C 385 340 395 360 400 380" />
-          <path class="edge" d="M 270 315 C 310 335 330 350 355 380" />
-          <path class="edge" d="M 255 315 C 255 345 255 360 255 385" />
-          <path class="edge" d="M 280 400 C 320 400 340 400 380 400" />
-          <path class="edge" d="M 220 170 C 170 170 155 200 130 230" />
-          <path class="edge" d="M 110 255 C 150 290 180 305 225 310" />
-
-          <!-- animated active edges (highlight an in-flight path) -->
-          <path class="edge-active" d="M 125 110 C 170 110 180 170 215 170" />
-          <path class="edge-active" d="M 265 190 C 305 190 315 190 355 190" />
-          <path class="edge-active" d="M 375 215 C 395 235 400 260 400 290" />
-        </g>
-
-        <!-- nodes -->
-        <!-- N0: root, done -->
-        <g class="node node-done" transform="translate(100 100)">
-          <circle class="halo" r="14" fill="none" stroke-width="1"/>
-          <circle class="inner" r="5"/>
-          <text class="node-tag" x="-14" y="28">init</text>
-        </g>
-
-        <!-- N1: done -->
-        <g class="node node-done" transform="translate(240 175)">
-          <circle class="halo" r="14" fill="none" stroke-width="1"/>
-          <circle class="inner" r="5"/>
-          <text class="node-tag" x="-26" y="28">plan.md</text>
-        </g>
-
-        <!-- N2: pending -->
-        <g class="node" transform="translate(245 300)">
-          <circle class="node-ring" r="14"/>
-          <circle class="node-fill" r="5"/>
-          <text class="node-tag" x="-20" y="28">review</text>
-        </g>
-
-        <!-- N3: ACTIVE -->
-        <g class="node node-active" transform="translate(370 200)">
-          <circle class="halo" r="16" fill="none" stroke-width="1.2"/>
-          <circle class="inner" r="6"/>
-          <text class="node-tag" x="-30" y="30">agent-A</text>
-        </g>
-
-        <!-- N4: pending -->
-        <g class="node" transform="translate(360 305)">
-          <circle class="node-ring" r="14"/>
-          <circle class="node-fill" r="5"/>
-          <text class="node-tag" x="-24" y="28">analyze</text>
-        </g>
-
-        <!-- N5: done -->
-        <g class="node node-done" transform="translate(100 245)">
-          <circle class="halo" r="13" fill="none" stroke-width="1"/>
-          <circle class="inner" r="4.5"/>
-          <text class="node-tag" x="-16" y="26">data</text>
-        </g>
-
-        <!-- N6: ACTIVE -->
-        <g class="node node-active" transform="translate(405 305)">
-          <circle class="halo" r="16" fill="none" stroke-width="1.2"/>
-          <circle class="inner" r="6"/>
-          <text class="node-tag" x="8" y="8">agent-B</text>
-        </g>
-
-        <!-- N7: pending -->
-        <g class="node" transform="translate(255 400)">
-          <circle class="node-ring" r="14"/>
-          <circle class="node-fill" r="5"/>
-          <text class="node-tag" x="-24" y="28">synthesize</text>
-        </g>
-
-        <!-- N8: pending (final) -->
-        <g class="node" transform="translate(395 400)">
-          <circle class="node-ring" r="16"/>
-          <circle class="node-ring" r="22"/>
-          <circle class="node-fill" r="5"/>
-          <text class="node-tag" x="-16" y="38">commit</text>
-        </g>
-      </svg>
+      <div class="graph-terminal" aria-label="WorkGraph visualization output">
+        <pre>┌────────────────────────────────────────────┐
+│              revert-redo-fix               │
+│<span class="active">in-progress</span> · →308k ←8.9k ◎20M §2.5k        │
+└────────────────────────────────────────────┘
+                       │
+                      ┬┴
+                      │
+              ┌───────────────┐
+              │ fix-tui-perf  │
+              │open ·  §1.2k  │
+              └───────────────┘</pre>
+      </div>
 
       <div class="graph-readout">
-        <span><span class="muted">task/</span><span class="accent" id="taskName">analyze.rs</span></span>
-        <span class="muted">t = <span id="taskTime">00:02:41</span><span class="caret"></span></span>
+        <span class="muted">captured locally<span class="caret"></span></span>
       </div>
     </div>
   </div>
@@ -1028,7 +1081,7 @@
 <!-- ============ MISSION ============ -->
 <section class="shell section" id="mission">
   <div class="section-head">
-    <span class="section-index">01<span class="slash">/04</span></span>
+    <span class="section-index">01<span class="slash">/05</span></span>
     <span class="section-title">mission</span>
     <span class="section-rule"></span>
   </div>
@@ -1045,9 +1098,9 @@
         across days or weeks. No existing tool provides this coordination.
       </p>
       <p>
-        Poietic builds open-source infrastructure that makes hybrid human–AI research
+        Poietic builds open-source infrastructure that makes hybrid human-AI research
         <strong>auditable, reproducible, and inspectable</strong>. Our first product is
-        <a href="https://github.com/graphwork/workgraph">WorkGraph</a> — a task coordination
+        <a href="https://graphwork.github.io/">WorkGraph</a>, a task coordination
         graph where both humans and AI agents claim, execute, and complete interdependent
         work, with the full process recorded in a browsable computation graph.
       </p>
@@ -1055,17 +1108,46 @@
   </div>
 </section>
 
+<!-- ============ PUBLIC BENEFIT ============ -->
+<section class="shell section" id="public-benefit">
+  <div class="section-head">
+    <span class="section-index">02<span class="slash">/05</span></span>
+    <span class="section-title">public benefit</span>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="mission-grid">
+    <div class="mission-lead">
+      Poietic PBC is a registered Delaware Public Benefit Corporation.<br>
+      Our <i>specific public benefit purpose</i> is on file with the state.
+    </div>
+    <div class="mission-body">
+      <blockquote class="benefit-quote">
+        <p>
+          The Corporation shall be a public benefit corporation as contemplated by subchapter XV of the General Corporation Law (the &ldquo;DGCL&rdquo;), or any successor provisions. It is intended that the Corporation operate in a responsible and sustainable manner and produce a public benefit, and is to be managed in a manner that balances the stockholders&rsquo; pecuniary interests, the best interests of those materially affected by the Corporation&rsquo;s conduct, and the public benefit identified in this certificate of incorporation.
+        </p>
+        <p class="benefit-specific">
+          The specific public benefit purpose of the Corporation is to make human and machine collaboration legible and responsive to its participants.
+        </p>
+        <div class="benefit-source">
+          Verbatim from the Certificate of Amendment to the Certificate of Incorporation of Poietic PBC, filed with the Delaware Division of Corporations on April 13, 2026.
+        </div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
 <!-- ============ WHAT WE'VE BUILT ============ -->
 <section class="shell section" id="built">
   <div class="section-head">
-    <span class="section-index">02<span class="slash">/04</span></span>
+    <span class="section-index">03<span class="slash">/05</span></span>
     <span class="section-title">what we've built</span>
     <span class="section-rule"></span>
   </div>
 
   <p class="built-lead">
-    <strong>WorkGraph is functional and open-source</strong> (MIT, Rust, 93+ commits).
-    We already use it for real work — it coordinates our incorporation, our writing,
+    <strong>WorkGraph is functional and open-source</strong> (MIT, Rust, 2,091 commits).
+    We already use it for real work. It coordinates our incorporation, our writing,
     and our research. Each item below was executed through a WorkGraph.
   </p>
 
@@ -1086,7 +1168,7 @@
       <h3 class="built-title">Incorporated a company</h3>
       <p class="built-desc">
         Poietic PBC was formed and structured using WorkGraph to coordinate
-        the filing, governance, and equity grants — no lawyers required.
+        the filing, governance, and equity grants. No lawyers required.
       </p>
       <span class="built-status done">shipped</span>
     </article>
@@ -1104,13 +1186,13 @@
       <h3 class="built-title">Co-authored grant applications</h3>
       <p class="built-desc">
         Drafting, review, and submission passed between co-founders and AI
-        agents — every claim and handoff logged in the coordination graph.
+        agents. Every claim and handoff logged in the coordination graph.
       </p>
       <span class="built-status done">shipped</span>
     </article>
 
-    <!-- 03 pangenome methodology comparison -->
-    <article class="built-card" data-idx="03">
+    <!-- 03 PHR methodology comparison -->
+    <article class="built-card" data-idx="03" id="phr-demo">
       <span class="built-icon" aria-hidden="true">
         <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
           <line x1="4" y1="10" x2="30" y2="10"/>
@@ -1124,13 +1206,16 @@
           <circle cx="22" cy="24" r="1.6" fill="currentColor"/>
         </svg>
       </span>
-      <h3 class="built-title">Pangenome methodology comparison</h3>
+      <h3 class="built-title">PHR methodology comparison</h3>
       <p class="built-desc">
-        Three ways to do the same genomics task, side by side: WorkGraph
-        with a domain expert in the loop, a single-session agentic CLI,
-        and a solo bioinformatician. Full process published.
+        A three-way comparison on pseudo-homologous region (PHR) discovery in a defined
+        pangenome interval: WorkGraph with Erik in the loop alongside specialist agents,
+        a single-session agentic CLI running autonomously, and a solo skilled
+        bioinformatician using vg / PGGB. Each arm produces a candidate set; the WorkGraph
+        arm produces an inspectable computation graph alongside it.
+        <a href="#phr-demo" class="phr-link">writeup &rarr; coming soon</a>
       </p>
-      <span class="built-status soon">coming soon</span>
+      <span class="built-status soon">in progress</span>
     </article>
 
   </div>
@@ -1139,7 +1224,7 @@
 <!-- ============ FOUNDERS ============ -->
 <section class="shell section" id="founders">
   <div class="section-head">
-    <span class="section-index">03<span class="slash">/04</span></span>
+    <span class="section-index">04<span class="slash">/05</span></span>
     <span class="section-title">founders</span>
     <span class="section-rule"></span>
   </div>
@@ -1155,7 +1240,7 @@
       <p class="founder-bio">
         Computational biologist. Creator of <em>vg</em>, the foundational toolkit
         for pangenomics. Published in Nature Methods and Nature Biotechnology.
-        WorkGraph architect and lead developer — builds open-source
+        WorkGraph architect and lead developer. Builds open-source
         infrastructure that becomes community standard.
       </p>
       <div class="founder-stat">
@@ -1209,7 +1294,7 @@
 <!-- ============ CTA ============ -->
 <section class="shell cta" id="cta">
   <div class="section-head">
-    <span class="section-index">04<span class="slash">/04</span></span>
+    <span class="section-index">05<span class="slash">/05</span></span>
     <span class="section-title">get involved</span>
     <span class="section-rule"></span>
   </div>
@@ -1218,19 +1303,14 @@
     <div>
       <h2>Open the <i>graph</i>.<br>Read the code.</h2>
       <p>
-        WorkGraph is MIT-licensed and actively developed. Read the docs, clone the
-        repo, or join us on the drug discovery competition.
+        WorkGraph is MIT-licensed and actively developed: 2,091 commits,
+        263,112 source lines, and 83,196 test lines in the local checkout.
+        Read the docs, clone the repo, or follow the
+        <a href="#phr-demo">PHR methodology comparison</a>.
       </p>
     </div>
     <div class="cta-actions">
-      <a class="btn primary" href="https://github.com/graphwork/workgraph">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-          <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
-        </svg>
-        View on GitHub
-        <span class="arrow">→</span>
-      </a>
-      <a class="btn" href="https://graphwork.github.io/">
+      <a class="btn primary" href="https://graphwork.github.io/">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
           <path d="M3 2 H10 L13 5 V14 H3 Z"/>
           <path d="M10 2 V5 H13"/>
@@ -1238,7 +1318,14 @@
           <path d="M5 10.5 H11"/>
           <path d="M5 13 H9"/>
         </svg>
-        Read the docs
+        Open WorkGraph
+        <span class="arrow">→</span>
+      </a>
+      <a class="btn" href="https://github.com/graphwork/workgraph">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+        </svg>
+        View on GitHub
         <span class="arrow">→</span>
       </a>
     </div>
@@ -1254,37 +1341,14 @@
       <span>United States</span>
     </div>
     <div>
+      <a href="https://graphwork.github.io/">workgraph</a> ·
       <a href="https://github.com/graphwork/workgraph">github</a> ·
-      <a href="https://graphwork.github.io/">docs</a> ·
       <a href="#mission">mission</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // Rotate task readout text
-  (function () {
-    const names = ['analyze.rs', 'plan.md', 'review.diff', 'agent-A.run', 'commit.sig', 'data.fetch'];
-    const nameEl = document.getElementById('taskName');
-    const timeEl = document.getElementById('taskTime');
-    let i = 0;
-    setInterval(() => {
-      i = (i + 1) % names.length;
-      if (nameEl) nameEl.textContent = names[i];
-    }, 2400);
-
-    // live-ticking timer, anchored to page load
-    const t0 = Date.now() - (2 * 60 + 41) * 1000;
-    setInterval(() => {
-      if (!timeEl) return;
-      const s = Math.floor((Date.now() - t0) / 1000);
-      const h = String(Math.floor(s / 3600)).padStart(2, '0');
-      const m = String(Math.floor((s % 3600) / 60)).padStart(2, '0');
-      const ss = String(s % 60).padStart(2, '0');
-      timeEl.textContent = `${h}:${m}:${ss}`;
-    }, 1000);
-  })();
-
   // Smooth scroll for in-page links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
