@@ -204,42 +204,6 @@
     width: 24px; height: 1px; background: var(--muted-2);
   }
 
-  /* -------- Hero-scale logo legend (human ─ task ─ agent) -------- */
-  .logo-legend {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 28px;
-    padding: 10px 14px;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    background: var(--surface);
-    font-size: 10.5px;
-    color: var(--muted);
-    letter-spacing: 0.5px;
-  }
-  .logo-legend svg { display: block; flex-shrink: 0; }
-  .logo-legend .sep { width: 1px; height: 16px; background: var(--border-2); }
-  .logo-legend .role {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--fg-dim);
-    text-transform: uppercase;
-    font-size: 10px;
-  }
-  .logo-legend .role b { color: var(--accent); font-weight: 500; }
-  .logo-legend .swatch { width: 10px; height: 10px; display: inline-block; }
-  .logo-legend .swatch.solid { background: var(--accent); border-radius: 50%; }
-  .logo-legend .swatch.ring { border: 1.5px solid var(--accent); border-radius: 50%; background: transparent; }
-  .logo-legend .swatch.diamond {
-    background: var(--bg);
-    border: 1.5px solid var(--accent);
-    transform: rotate(45deg);
-    width: 8px; height: 8px;
-    margin: 1px;
-  }
-
   .hero h1 {
     font-family: var(--serif);
     font-weight: 400;
@@ -373,18 +337,25 @@
   .graph-wrap {
     position: relative;
     aspect-ratio: 1 / 1;
-    max-width: 520px;
+    max-width: 760px;
     justify-self: end;
-    width: 100%;
+    width: calc(100% + 96px);
+    margin-right: -96px;
   }
   @media (max-width: 900px) {
-    .graph-wrap { justify-self: stretch; max-width: 100%; aspect-ratio: 4 / 3; }
+    .graph-wrap {
+      justify-self: stretch;
+      max-width: 100%;
+      width: 100%;
+      margin-right: 0;
+      aspect-ratio: 4 / 3;
+    }
   }
 
   .graph-frame {
     position: absolute;
     inset: 0;
-    border: 1px solid var(--border);
+    border: 1px solid color-mix(in oklab, var(--border) 45%, transparent);
     border-radius: 4px;
     background:
       radial-gradient(circle at 50% 40%, color-mix(in oklab, var(--accent) 6%, transparent), transparent 60%),
@@ -445,12 +416,12 @@
 
   .graph-terminal {
     position: absolute;
-    inset: 26px;
+    inset: 10px 0 10px 10px;
     overflow: hidden;
-    border: 1px solid var(--border-2);
-    border-radius: 4px;
-    background: color-mix(in oklab, var(--bg) 88%, var(--accent) 4%);
-    box-shadow: inset 0 0 24px rgba(0,0,0,0.24);
+    border: 1px solid color-mix(in oklab, var(--border-2) 26%, transparent);
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    background: color-mix(in oklab, var(--bg) 94%, var(--accent) 2%);
   }
   .graph-terminal::after {
     content: "";
@@ -458,25 +429,25 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 34%;
+    height: 30%;
     pointer-events: none;
-    background: linear-gradient(to bottom, transparent, var(--bg-2));
+    background: linear-gradient(to bottom, transparent, var(--bg));
   }
   .graph-embed {
-    width: calc(100% + 72px);
+    width: calc(100% + 144px);
     height: calc(100% + 260px);
     border: 0;
     display: block;
-    transform: translate(-36px, -260px);
+    transform: translate(-42px, -260px);
     transform-origin: top left;
     background: var(--bg);
   }
   @media (max-width: 520px) {
-    .graph-terminal { inset: 18px; }
+    .graph-terminal { inset: 10px 0 10px 10px; }
     .graph-embed {
-      width: calc(100% + 56px);
+      width: calc(100% + 96px);
       height: calc(100% + 236px);
-      transform: translate(-28px, -236px);
+      transform: translate(-30px, -236px);
     }
   }
 
@@ -755,6 +726,26 @@
     letter-spacing: 0.3px;
   }
   .built-desc .phr-link:hover { color: var(--accent); border-color: var(--accent); }
+  .activity-list {
+    margin-top: 10px;
+    display: grid;
+    gap: 6px;
+  }
+  .activity-list span {
+    display: block;
+    padding-left: 12px;
+    position: relative;
+  }
+  .activity-list span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-dim);
+  }
 
   .built-status {
     margin-top: 16px;
@@ -779,97 +770,6 @@
     content: ""; width: 5px; height: 5px; background: var(--amber); border-radius: 50%;
     box-shadow: 0 0 6px var(--amber);
     animation: pulse 2s ease-in-out infinite;
-  }
-
-  /* ============ FOUNDERS ============ */
-  .founders-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-  @media (max-width: 900px) {
-    .founders-grid { grid-template-columns: 1fr; }
-  }
-
-  .founder {
-    position: relative;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 28px 24px 26px;
-    background: var(--surface);
-    transition: all 0.25s ease;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .founder::after {
-    content: "";
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 2px;
-    background: var(--accent-deep);
-    transition: background 0.25s;
-  }
-  .founder:hover {
-    border-color: var(--accent-dim);
-    transform: translateY(-2px);
-    background: color-mix(in oklab, var(--accent) 3%, var(--surface));
-  }
-  .founder:hover::after { background: var(--accent); }
-  .founder:hover .founder-handle { color: var(--accent); }
-
-  .founder-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 4px;
-  }
-  .founder-name {
-    font-family: var(--mono);
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--fg);
-    letter-spacing: -0.2px;
-  }
-  .founder-handle {
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.8px;
-    transition: color 0.25s;
-    margin-top: 4px;
-    white-space: nowrap;
-  }
-  .founder-role {
-    color: var(--accent);
-    font-size: 11.5px;
-    font-weight: 400;
-    margin-bottom: 14px;
-    line-height: 1.4;
-    letter-spacing: -0.1px;
-  }
-  .founder-bio {
-    font-size: 12.5px;
-    color: var(--fg-dim);
-    font-weight: 300;
-    line-height: 1.65;
-    text-wrap: pretty;
-  }
-  .founder-bio em { font-size: 1em; color: var(--fg); }
-  .founder-stat {
-    margin-top: 16px;
-    padding-top: 14px;
-    border-top: 1px dashed var(--border-2);
-    font-size: 10.5px;
-    color: var(--muted);
-    letter-spacing: 0.5px;
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  .founder-stat span strong {
-    color: var(--fg);
-    font-weight: 500;
   }
 
   /* ============ CTA BLOCK ============ */
@@ -983,7 +883,7 @@
     <div class="nav-links">
       <a href="#mission">mission</a>
       <a href="#built">what we've built</a>
-      <a href="#founders">founders</a>
+      <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a>
       <a href="https://graphwork.github.io/">workgraph ↗</a>
       <a href="https://github.com/graphwork/workgraph">github ↗</a>
     </div>
@@ -1022,6 +922,7 @@
           <span class="arrow">→</span>
         </a>
         <a class="btn" href="#mission">Read the mission</a>
+        <a class="btn" href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">Live demo</a>
       </div>
 
       <div class="hero-meta">
@@ -1042,14 +943,6 @@
           <strong>83,196</strong>
           <span>test lines</span>
         </div>
-      </div>
-
-      <div class="logo-legend" aria-label="Logo legend: human, task, agent">
-        <span class="role"><span class="swatch solid"></span><b>human</b></span>
-        <span class="sep"></span>
-        <span class="role"><span class="swatch diamond"></span>task</span>
-        <span class="sep"></span>
-        <span class="role"><span class="swatch ring"></span><b>agent</b></span>
       </div>
     </div>
 
@@ -1075,7 +968,7 @@
 <!-- ============ MISSION ============ -->
 <section class="shell section" id="mission">
   <div class="section-head">
-    <span class="section-index">01<span class="slash">/05</span></span>
+    <span class="section-index">01<span class="slash">/03</span></span>
     <span class="section-title">mission</span>
     <span class="section-rule"></span>
   </div>
@@ -1098,36 +991,12 @@
         graph where both humans and AI agents claim, execute, and complete interdependent
         work, with the full process recorded in a browsable computation graph.
       </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PUBLIC BENEFIT ============ -->
-<section class="shell section" id="public-benefit">
-  <div class="section-head">
-    <span class="section-index">02<span class="slash">/05</span></span>
-    <span class="section-title">public benefit</span>
-    <span class="section-rule"></span>
-  </div>
-
-  <div class="mission-grid">
-    <div class="mission-lead">
-      Erik, Luca, and Vaughn registered together as Poietic PBC.<br>
-      Below is the <i>specific public benefit purpose</i> the three of us
-      filed with the State of Delaware.
-    </div>
-    <div class="mission-body">
-      <blockquote class="benefit-quote">
-        <p>
-          The Corporation shall be a public benefit corporation as contemplated by subchapter XV of the General Corporation Law (the &ldquo;DGCL&rdquo;), or any successor provisions. It is intended that the Corporation operate in a responsible and sustainable manner and produce a public benefit, and is to be managed in a manner that balances the stockholders&rsquo; pecuniary interests, the best interests of those materially affected by the Corporation&rsquo;s conduct, and the public benefit identified in this certificate of incorporation.
-        </p>
-        <p class="benefit-specific">
-          The specific public benefit purpose of the Corporation is to make human and machine collaboration legible and responsive to its participants.
-        </p>
-        <div class="benefit-source">
-          Verbatim from the Certificate of Amendment to the Certificate of Incorporation of Poietic PBC, filed with the Delaware Division of Corporations on April 13, 2026. (&ldquo;The Corporation&rdquo; in the filed text refers to the three of us, not to a separate entity.)
-        </div>
-      </blockquote>
+      <p>
+        Poietic PBC exists to make human and machine collaboration
+        <strong>legible and responsive to its participants</strong>. That public-benefit
+        purpose is the operating constraint: the tools should expose the work,
+        the handoffs, the failures, and the evidence trail.
+      </p>
     </div>
   </div>
 </section>
@@ -1135,7 +1004,7 @@
 <!-- ============ WHAT WE'VE BUILT ============ -->
 <section class="shell section" id="built">
   <div class="section-head">
-    <span class="section-index">03<span class="slash">/05</span></span>
+    <span class="section-index">02<span class="slash">/03</span></span>
     <span class="section-title">what we've built</span>
     <span class="section-rule"></span>
   </div>
@@ -1180,14 +1049,14 @@
       </span>
       <h3 class="built-title">Co-authored grant applications</h3>
       <p class="built-desc">
-        Drafting, review, and submission passed between co-founders and AI
+        Drafting, review, and submission passed between researchers and AI
         agents. Every claim and handoff logged in the coordination graph.
       </p>
       <span class="built-status done">shipped</span>
     </article>
 
-    <!-- 03 PHR methodology comparison -->
-    <article class="built-card" data-idx="03" id="phr-demo">
+    <!-- 03 scientific activity -->
+    <article class="built-card" data-idx="03" id="scientific-activity">
       <span class="built-icon" aria-hidden="true">
         <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
           <line x1="4" y1="10" x2="30" y2="10"/>
@@ -1201,86 +1070,19 @@
           <circle cx="22" cy="24" r="1.6" fill="currentColor"/>
         </svg>
       </span>
-      <h3 class="built-title">PHR methodology comparison</h3>
+      <h3 class="built-title">Diverse scientific activity</h3>
       <p class="built-desc">
-        A three-way comparison on pseudo-homologous region (PHR) discovery in a defined
-        pangenome interval: WorkGraph with Erik in the loop alongside specialist agents,
-        a single-session agentic CLI running autonomously, and a solo skilled
-        bioinformatician using vg / PGGB. Each arm produces a candidate set; the WorkGraph
-        arm produces an inspectable computation graph alongside it.
-        <a href="#phr-demo" class="phr-link">writeup &rarr; coming soon</a>
+        WorkGraph is being used across live scientific work, not a single canned demo.
+        Current threads include:
+        <span class="activity-list">
+          <span>pangenome and PHR discovery workflows</span>
+          <span>CRISPR, regulatory genomics, and variant interpretation</span>
+          <span>agentic methodology comparisons for bioinformatics</span>
+          <span>grant writing, review, and collaborative research planning</span>
+        </span>
+        <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/" class="phr-link">open live graph &rarr;</a>
       </p>
-      <span class="built-status soon">in progress</span>
-    </article>
-
-  </div>
-</section>
-
-<!-- ============ FOUNDERS ============ -->
-<section class="shell section" id="founders">
-  <div class="section-head">
-    <span class="section-index">04<span class="slash">/05</span></span>
-    <span class="section-title">founders</span>
-    <span class="section-rule"></span>
-  </div>
-
-  <div class="founders-grid">
-
-    <article class="founder">
-      <div class="founder-top">
-        <div class="founder-name">Erik Garrison</div>
-        <div class="founder-handle">01 / arch</div>
-      </div>
-      <div class="founder-role">Associate Professor · UTHSC</div>
-      <p class="founder-bio">
-        Computational biologist. Creator of <em>vg</em>, the foundational toolkit
-        for pangenomics. Published in Nature Methods and Nature Biotechnology.
-        WorkGraph architect and lead developer. Builds open-source
-        infrastructure that becomes community standard.
-      </p>
-      <div class="founder-stat">
-        <span>pangenomics</span>
-        <span>open-source infrastructure</span>
-        <span>distributed systems</span>
-      </div>
-    </article>
-
-    <article class="founder">
-      <div class="founder-top">
-        <div class="founder-name">Luca Pinello</div>
-        <div class="founder-handle">02 / bio</div>
-      </div>
-      <div class="founder-role">Associate Professor · MGH / Harvard / Broad</div>
-      <p class="founder-bio">
-        Computational genomics and AI for biology. Built <em>CRISPResso2</em>,
-        <em>DNA-Diffusion</em> (Nature Genetics), and Chorus. Work on the BCL11A
-        enhancer contributed to <em>Casgevy</em>, the first FDA-approved CRISPR therapy.
-        Leads a center in the NHGRI IGVF Consortium.
-      </p>
-      <div class="founder-stat">
-        <span>genomics</span>
-        <span>generative AI</span>
-        <span>CRISPR genome editing</span>
-      </div>
-    </article>
-
-    <article class="founder">
-      <div class="founder-top">
-        <div class="founder-name">Vaughn Tan</div>
-        <div class="founder-handle">03 / org</div>
-      </div>
-      <div class="founder-role">Honorary Professor · UCL School of Management</div>
-      <p class="founder-bio">
-        Organizational design under uncertainty. Author of
-        <em>The Uncertainty Mindset</em> (Columbia University Press).
-        PhD from Harvard. Former Google. Fellow at the Future of Life Foundation.
-        Studies how teams organize for innovation when the rules keep changing.
-      </p>
-      <div class="founder-stat">
-        <span>organizational design</span>
-        <span>uncertainty</span>
-        <span>team coordination</span>
-      </div>
+      <span class="built-status done">live</span>
     </article>
 
   </div>
@@ -1289,7 +1091,7 @@
 <!-- ============ CTA ============ -->
 <section class="shell cta" id="cta">
   <div class="section-head">
-    <span class="section-index">05<span class="slash">/05</span></span>
+    <span class="section-index">03<span class="slash">/03</span></span>
     <span class="section-title">get involved</span>
     <span class="section-rule"></span>
   </div>
@@ -1300,8 +1102,8 @@
       <p>
         WorkGraph is MIT-licensed and actively developed: 2,091 commits,
         263,112 source lines, and 83,196 test lines in the local checkout.
-        Read the docs, clone the repo, or follow the
-        <a href="#phr-demo">PHR methodology comparison</a>.
+        Read the docs, clone the repo, or open the
+        <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live WorkGraph mirror</a>.
       </p>
     </div>
     <div class="cta-actions">
