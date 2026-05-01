@@ -197,12 +197,20 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
+    row-gap: 6px;
     margin-bottom: 28px;
   }
   .hero-label::before {
     content: "";
     width: 24px; height: 1px; background: var(--muted-2);
   }
+  .hero-label a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .hero-label a:hover { color: var(--fg); }
+  .hero-label-live { white-space: nowrap; }
 
   .hero h1 {
     font-family: var(--serif);
@@ -898,7 +906,13 @@
 <section class="shell">
   <div class="hero">
     <div class="hero-copy">
-      <div class="hero-label">Poietic PBC · est. 2026</div>
+      <div class="hero-label">
+        <span>Poietic PBC · est. 2026</span>
+        <span class="hero-label-live">
+          builds itself ·
+          <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a>
+        </span>
+      </div>
       <h1>
         Infrastructure for <i>hybrid</i><br>
         human &amp; AI <span class="mono">science</span>.
@@ -957,7 +971,8 @@
         <iframe
           class="graph-embed"
           title="WorkGraph live mirror"
-          src="https://ulivo.poietic.life/wg/feeds/workgraph-itself/"
+          data-src="https://ulivo.poietic.life/wg/feeds/workgraph-itself/"
+          src="about:blank"
           loading="eager"
         ></iframe>
       </div>
@@ -1158,6 +1173,19 @@
       }
     });
   });
+
+  const graphEmbed = document.querySelector('.graph-embed[data-src]');
+  if (graphEmbed) {
+    const graphSrc = graphEmbed.dataset.src;
+    const refreshGraph = () => {
+      const url = new URL(graphSrc);
+      url.searchParams.set('embed_ts', Date.now().toString());
+      graphEmbed.src = url.toString();
+    };
+
+    refreshGraph();
+    window.setInterval(refreshGraph, 120000);
+  }
 </script>
 
 </body>
