@@ -186,7 +186,15 @@
     position: relative;
   }
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; gap: 48px; padding: 56px 0 48px; }
+    .hero { grid-template-columns: 1fr; gap: 24px; padding: 56px 0 48px; }
+    .hero-copy { display: contents; }
+    .hero-label { order: 1; margin-bottom: 0; }
+    .hero h1 { order: 2; margin-bottom: 0; }
+    .hero-sub { order: 3; }
+    .hero-cta { order: 4; margin-top: 8px; }
+    .hero-meta { order: 5; margin-top: 0; }
+    .graph-wrap { order: 6; }
+    .repo-stats { order: 7; margin-top: 0; max-width: none; }
   }
 
   .hero-label {
@@ -681,6 +689,79 @@
     font-weight: 300;
   }
 
+  /* ============ FOUNDERS ============ */
+  .founders-lead {
+    color: var(--fg-dim);
+    font-size: 14px;
+    font-weight: 300;
+    max-width: 64ch;
+    margin-bottom: 44px;
+    text-wrap: pretty;
+  }
+  .founders-lead strong { color: var(--fg); font-weight: 500; }
+
+  .founders-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  @media (max-width: 820px) {
+    .founders-grid { grid-template-columns: 1fr; }
+  }
+
+  .founder-card {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 26px 24px 24px;
+    background: var(--surface);
+    transition: all 0.25s ease;
+    overflow: hidden;
+  }
+  .founder-card::before {
+    content: attr(data-idx);
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+  .founder-card:hover {
+    border-color: var(--accent-dim);
+    transform: translateY(-2px);
+    background: color-mix(in oklab, var(--accent) 4%, var(--surface));
+  }
+
+  .founder-name {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fg);
+    margin-bottom: 4px;
+    letter-spacing: -0.2px;
+  }
+  .founder-affil {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent-dim);
+    letter-spacing: 0.3px;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .founder-bio {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+  .founder-bio em {
+    font-style: italic;
+    font-family: var(--serif);
+    font-size: 1.05em;
+    color: var(--fg-dim);
+  }
+
   /* ============ WHAT WE'VE BUILT ============ */
   .built-lead {
     color: var(--fg-dim);
@@ -919,6 +1000,7 @@
     </a>
     <div class="nav-links">
       <a href="#mission">mission</a>
+      <a href="#founders">founders</a>
       <a href="#built">what we've built</a>
       <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a>
       <a href="https://graphwork.github.io/">workgraph ↗</a>
@@ -1006,7 +1088,7 @@
 <!-- ============ MISSION ============ -->
 <section class="shell section" id="mission">
   <div class="section-head">
-    <span class="section-index">01<span class="slash">/03</span></span>
+    <span class="section-index">01<span class="slash">/04</span></span>
     <span class="section-title">mission</span>
     <span class="section-rule"></span>
   </div>
@@ -1039,10 +1121,63 @@
   </div>
 </section>
 
+<!-- ============ FOUNDERS ============ -->
+<section class="shell section" id="founders">
+  <div class="section-head">
+    <span class="section-index">02<span class="slash">/04</span></span>
+    <span class="section-title">founders</span>
+    <span class="section-rule"></span>
+  </div>
+
+  <p class="founders-lead">
+    <strong>Three co-founders, equal standing.</strong> Two practicing scientists
+    whose tools are in daily use across genomics, and an organizational
+    researcher who studies how hybrid teams operate under uncertainty.
+  </p>
+
+  <div class="founders-grid">
+
+    <article class="founder-card" data-idx="01">
+      <h3 class="founder-name">Erik Garrison</h3>
+      <p class="founder-affil">University of Tennessee Health Science Center</p>
+      <p class="founder-bio">
+        Created <em>vg</em>, the foundational pangenomics toolkit (~72,000 Google
+        Scholar citations across the toolkit), and built PGGB, the pangenome
+        graph builder used by the Human Pangenome Reference Consortium.
+        Author on Nat Biotechnol 2018 and Nat Methods 2024. WorkGraph
+        architect and lead developer.
+      </p>
+    </article>
+
+    <article class="founder-card" data-idx="02">
+      <h3 class="founder-name">Luca Pinello</h3>
+      <p class="founder-affil">Massachusetts General Hospital / Harvard Medical School / Broad Institute</p>
+      <p class="founder-bio">
+        Built <em>CRISPResso2</em>, the standard for CRISPR editing analysis
+        (18,700+ citations). His group's CRISPRme independently identified an
+        off-target in the BCL11A guide that became Casgevy, informing the FDA
+        review. Built Chorus to orchestrate genomic AI models.
+      </p>
+    </article>
+
+    <article class="founder-card" data-idx="03">
+      <h3 class="founder-name">Vaughn Tan</h3>
+      <p class="founder-affil">Honorary Professor, UCL School of Management</p>
+      <p class="founder-bio">
+        Author of <em>The Uncertainty Mindset</em> (Columbia University Press,
+        2020). PhD in Organizational Behavior from Harvard. Researches how
+        hybrid teams operate under uncertainty, the organizational question
+        WorkGraph is built to answer.
+      </p>
+    </article>
+
+  </div>
+</section>
+
 <!-- ============ WHAT WE'VE BUILT ============ -->
 <section class="shell section" id="built">
   <div class="section-head">
-    <span class="section-index">02<span class="slash">/03</span></span>
+    <span class="section-index">03<span class="slash">/04</span></span>
     <span class="section-title">what we've built</span>
     <span class="section-rule"></span>
   </div>
@@ -1130,7 +1265,7 @@
 <!-- ============ CTA ============ -->
 <section class="shell cta" id="cta">
   <div class="section-head">
-    <span class="section-index">03<span class="slash">/03</span></span>
+    <span class="section-index">04<span class="slash">/04</span></span>
     <span class="section-title">get involved</span>
     <span class="section-rule"></span>
   </div>
