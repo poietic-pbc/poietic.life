@@ -197,21 +197,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    flex-wrap: wrap;
-    row-gap: 6px;
     margin-bottom: 28px;
   }
   .hero-label::before {
     content: "";
     width: 24px; height: 1px; background: var(--muted-2);
   }
-  .hero-label a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .hero-label a:hover { color: var(--fg); }
-  .hero-label-live { white-space: nowrap; }
-
   .hero h1 {
     font-family: var(--serif);
     font-weight: 400;
@@ -258,6 +249,11 @@
     font-weight: 300;
   }
   .hero-meta span { display: inline-flex; align-items: center; gap: 10px; }
+  .hero-meta a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .hero-meta a:hover { color: var(--fg); }
   .hero-meta .tag {
     color: var(--fg-dim);
     border: 1px solid var(--border-2);
@@ -906,13 +902,7 @@
 <section class="shell">
   <div class="hero">
     <div class="hero-copy">
-      <div class="hero-label">
-        <span>Poietic PBC · est. 2026</span>
-        <span class="hero-label-live">
-          builds itself ·
-          <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a>
-        </span>
-      </div>
+      <div class="hero-label">Poietic PBC · est. 2026</div>
       <h1>
         Infrastructure for <i>hybrid</i><br>
         human &amp; AI <span class="mono">science</span>.
@@ -941,7 +931,7 @@
 
       <div class="hero-meta">
         <span><span class="tag">MIT</span> 2,091 commits · Rust · open-source</span>
-        <span><span class="tag">v0.1</span> workgraph, live and coordinating real work</span>
+        <span><span class="tag">v0.1</span> workgraph builds itself · <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a></span>
       </div>
 
       <div class="repo-stats" aria-label="WorkGraph repository statistics">
