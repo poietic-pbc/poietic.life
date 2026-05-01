@@ -186,7 +186,15 @@
     position: relative;
   }
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; gap: 48px; padding: 56px 0 48px; }
+    .hero { grid-template-columns: 1fr; gap: 24px; padding: 56px 0 48px; }
+    .hero-copy { display: contents; }
+    .hero-label { order: 1; margin-bottom: 0; }
+    .hero h1 { order: 2; margin-bottom: 0; }
+    .hero-sub { order: 3; }
+    .hero-cta { order: 4; margin-top: 8px; }
+    .hero-meta { order: 5; margin-top: 0; }
+    .graph-wrap { order: 6; }
+    .repo-stats { order: 7; margin-top: 0; max-width: none; }
   }
 
   .hero-label {
@@ -349,10 +357,17 @@
   @media (max-width: 900px) {
     .graph-wrap {
       justify-self: stretch;
-      max-width: 100%;
-      width: 100%;
-      margin-right: 0;
+      max-width: none;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
       aspect-ratio: 4 / 3;
+    }
+  }
+  @media (max-width: 520px) {
+    .graph-wrap {
+      aspect-ratio: 1 / 1.08;
+      min-height: 420px;
     }
   }
 
