@@ -178,6 +178,39 @@ workgraph workflow, not to production.
 
 ## 6. Files touched
 
+## 7. Fact integration pass - 2026-05-01
+
+Task: `integrate-landing-facts`
+
+Integrated the four upstream audit artifacts into `index.html`:
+
+- `notes/factcheck-erik-bio-20260501.md`
+- `notes/factcheck-luca-bio-20260501.md`
+- `notes/factcheck-vaughn-bio-20260501.md`
+- `notes/workgraph-framing-audit-20260501.md`
+
+Rendered landing-page copy now avoids the unsupported citation-count claims
+and the stale exact repository statistics. The hero keeps one rounded
+repository proof point, "2,000+ commits", and the three former stat cards now
+describe stable WorkGraph interface surfaces: dependency graph, live feeds,
+and inspectable histories.
+
+Founder cards use conservative public claims:
+
+- Erik: `vg` as *Nature Biotechnology* 2018, PGGB as *Nature Methods* 2024,
+  HPRC-scale ecosystem wording, and WorkGraph architect/lead-developer wording.
+- Luca: CRISPResso/CRISPResso2 and CRISPRme without citation inflation or
+  "standard" wording; CRISPRme/Casgevy phrased as a variant-dependent
+  candidate off-target later discussed in FDA advisory materials; Chorus
+  described as a common interface for sequence-to-function AI models.
+- Vaughn: "Honorary faculty, UCL School of Management"; Harvard PhD in
+  organizational behavior/sociology; WorkGraph relevance framed as informing
+  human-judgment-explicit coordination, not as prior publication on
+  human-AI scientific teams.
+
+Validation included desktop and mobile browser screenshots against a local
+static server before commit.
+
 - `~/poietic.life/index.html` — production deployed file (this is what reviewers see)
 - `~/google_ai_competition/.wg-worktrees/agent-32/index.html` — worktree mirror, kept in sync
 - `~/poietic.life/notes/landing-page-v2-update-20260501.md` — this note

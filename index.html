@@ -162,6 +162,7 @@
   @media (max-width: 640px) {
     .nav-inner { padding: 12px 20px; }
     .nav-links { display: none; }
+    .nav-status { display: none; }
   }
   @media (max-width: 420px) {
     .nav-status { display: none; }
@@ -334,11 +335,11 @@
   }
   .repo-stat strong {
     display: block;
-    font-size: 20px;
+    font-size: 13px;
     line-height: 1.1;
     color: var(--fg);
     font-weight: 500;
-    letter-spacing: -0.4px;
+    letter-spacing: 0;
   }
   .repo-stat span {
     display: block;
@@ -625,6 +626,11 @@
   .mission-lead i { color: var(--accent); font-style: italic; }
   @media (max-width: 640px) {
     .mission-lead br { display: none; }
+    .hero h1,
+    .hero-sub,
+    .hero-cta,
+    .hero-meta,
+    .repo-stats,
     .mission-lead,
     .mission-body p,
     .built-lead,
@@ -632,6 +638,21 @@
     .cta p {
       max-width: 100%;
       overflow-wrap: break-word;
+    }
+    .hero h1,
+    .hero-cta,
+    .repo-stats {
+      width: calc(100vw - 40px);
+      max-width: calc(100vw - 40px);
+    }
+    .hero-sub,
+    .hero-meta {
+      width: min(28ch, calc(100vw - 72px));
+      max-width: min(28ch, calc(100vw - 72px));
+    }
+    .hero-meta span {
+      flex-wrap: wrap;
+      row-gap: 4px;
     }
   }
 
@@ -1027,9 +1048,10 @@
         human &amp; AI <span class="mono">science</span>.
       </h1>
       <p class="hero-sub">
-        Persistent, auditable coordination graphs where many humans and
-        many AI agents claim, execute, and complete interdependent work.
-        Better research, because the process is recorded and browsable.
+        Persistent coordination graphs for hybrid human-AI work. Humans and
+        agents claim, execute, hand off, and complete interdependent tasks while
+        WorkGraph records the graph, live feeds, decisions, artifacts, and
+        histories that make the process inspectable.
       </p>
 
       <div class="hero-cta">
@@ -1049,21 +1071,21 @@
       </div>
 
       <div class="hero-meta">
-        <span><span class="tag">MIT</span> Rust · open-source · <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a></span>
+        <span><span class="tag">MIT</span> Rust · open-source · 2,000+ commits · <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a></span>
       </div>
 
       <div class="repo-stats" aria-label="WorkGraph repository statistics">
         <div class="repo-stat">
-          <strong>2,091</strong>
-          <span>commits</span>
+          <strong>Dependency graph</strong>
+          <span>task structure</span>
         </div>
         <div class="repo-stat">
-          <strong>263,112</strong>
-          <span>lines of code</span>
+          <strong>Live feeds</strong>
+          <span>work in motion</span>
         </div>
         <div class="repo-stat">
-          <strong>83,196</strong>
-          <span>test lines</span>
+          <strong>Inspectable histories</strong>
+          <span>decisions and artifacts</span>
         </div>
       </div>
     </div>
@@ -1110,9 +1132,10 @@
       <p>
         We build open-source infrastructure that makes hybrid human-AI research
         <strong>auditable, reproducible, and inspectable</strong>. Our first product is
-        <a href="https://graphwork.github.io/">WorkGraph</a>, a task coordination
-        graph where both humans and AI agents claim, execute, and complete interdependent
-        work, with the full process recorded in a browsable computation graph.
+        <a href="https://graphwork.github.io/">WorkGraph</a>, a Rust task-coordination
+        system where humans and AI agents work in the same dependency graph, with
+        claims, execution logs, handoffs, completions, artifacts, and histories
+        preserved for review.
       </p>
       <p>
         Poietic PBC exists to make human and machine collaboration
@@ -1135,7 +1158,8 @@
   <p class="founders-lead">
     <strong>Three co-founders, equal standing.</strong> Two practicing scientists
     whose tools are in daily use across genomics, and an organizational
-    researcher who studies how hybrid teams operate under uncertainty.
+    researcher whose work on team adaptation under uncertainty informs the
+    design of hybrid human-AI coordination.
   </p>
 
   <div class="founders-grid">
@@ -1144,11 +1168,11 @@
       <h3 class="founder-name">Erik Garrison</h3>
       <p class="founder-affil">University of Tennessee Health Science Center</p>
       <p class="founder-bio">
-        Created <em>vg</em>, the foundational pangenomics toolkit (~72,000 Google
-        Scholar citations across the toolkit), and built PGGB, the pangenome
-        graph builder used by the Human Pangenome Reference Consortium.
-        Author on Nat Biotechnol 2018 and Nat Methods 2024. WorkGraph
-        architect and lead developer.
+        Created <em>vg</em>, the variation-graph toolkit published in
+        <em>Nature Biotechnology</em> in 2018, and co-led PGGB, the PanGenome
+        Graph Builder published in <em>Nature Methods</em> in 2024. His
+        pangenome graph work is part of the tool ecosystem used at HPRC scale.
+        WorkGraph architect and lead developer.
       </p>
     </article>
 
@@ -1156,21 +1180,24 @@
       <h3 class="founder-name">Luca Pinello</h3>
       <p class="founder-affil">Massachusetts General Hospital / Harvard Medical School / Broad Institute</p>
       <p class="founder-bio">
-        Built <em>CRISPResso2</em>, the standard for CRISPR editing analysis
-        (18,700+ citations). His group's CRISPRme independently identified an
-        off-target in the BCL11A guide that became Casgevy, informing the FDA
-        review. Built Chorus to orchestrate genomic AI models.
+        Develops computational tools for genome editing and regulatory
+        genomics, including CRISPResso/CRISPResso2 and CRISPRme. CRISPRme
+        identified a variant-dependent candidate off-target for the BCL11A
+        enhancer guide used in exa-cel/Casgevy, later discussed in FDA
+        advisory materials. His lab also develops Chorus, a common interface
+        for sequence-to-function AI models including AlphaGenome.
       </p>
     </article>
 
     <article class="founder-card" data-idx="03">
       <h3 class="founder-name">Vaughn Tan</h3>
-      <p class="founder-affil">Honorary Professor, UCL School of Management</p>
+      <p class="founder-affil">Honorary faculty, UCL School of Management</p>
       <p class="founder-bio">
         Author of <em>The Uncertainty Mindset</em> (Columbia University Press,
-        2020). PhD in Organizational Behavior from Harvard. Researches how
-        hybrid teams operate under uncertainty, the organizational question
-        WorkGraph is built to answer.
+        2020) and a Harvard PhD in organizational behavior/sociology. Tan
+        studies organization design, innovation, and team adaptation under
+        uncertainty; that work informs WorkGraph's approach to keeping human
+        judgment explicit in hybrid human-AI research coordination.
       </p>
     </article>
 
@@ -1186,10 +1213,10 @@
   </div>
 
   <p class="built-lead">
-    <strong>WorkGraph is functional and open-source.</strong> It is a Rust system
-    for persistent task graphs: dependency visualization, claim/execute/complete
-    workflows, live feeds, agent handoffs, and inspectable histories. We already
-    use it for incorporation, writing, grant drafting, and research.
+    <strong>WorkGraph is functional, MIT-licensed, and open-source.</strong> It
+    provides dependency visualization, live feeds, claim/execute/complete
+    workflows, agent handoffs, and inspectable histories. We use it for
+    incorporation, writing, grant drafting, and research coordination.
   </p>
 
   <div class="built-grid">
