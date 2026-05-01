@@ -454,25 +454,26 @@
   .graph-terminal pre {
     width: 100%;
     margin: 0;
-    padding: 18px 16px;
+    padding: 14px 12px;
     border: 1px solid var(--border-2);
     border-radius: 4px;
     background: color-mix(in oklab, var(--bg) 88%, var(--accent) 4%);
     color: var(--fg-dim);
     font-family: var(--mono);
-    font-size: clamp(7.5px, 0.72vw, 10px);
-    line-height: 1.35;
+    font-size: clamp(4px, 0.38vw, 5.5px);
+    line-height: 1.18;
     text-align: left;
     white-space: pre;
     box-shadow: inset 0 0 24px rgba(0,0,0,0.24);
   }
-  .graph-terminal .active { color: var(--accent); }
+  .graph-terminal .active { color: var(--amber); }
   .graph-terminal .done { color: var(--accent-dim); }
   .graph-terminal .open { color: var(--fg); }
   .graph-terminal .dim { color: var(--muted); }
+  .graph-terminal .abandoned { color: var(--amber-dim); }
   @media (max-width: 520px) {
     .graph-terminal { inset: 54px 18px 54px; }
-    .graph-terminal pre { font-size: 6.4px; padding: 14px 8px; }
+    .graph-terminal pre { font-size: 3.1px; padding: 10px 6px; }
   }
 
   /* node styles */
@@ -1055,27 +1056,37 @@
       <div class="graph-corner bl"></div>
       <div class="graph-grid"></div>
 
-      <div class="graph-coord tl">wg viz</div>
-      <div class="graph-coord tr">dependency graph</div>
-      <div class="graph-coord bl">repo: graphwork/workgraph</div>
-      <div class="graph-coord br">● live</div>
-
       <div class="graph-terminal" aria-label="WorkGraph visualization output">
-        <pre><span class="dim">$</span> wg viz
-
-<span class="done">design-api</span>  (done) <span class="dim">2d</span>
-<span class="dim">├→</span> <span class="done">build-auth</span>  (done) <span class="dim">2d ──────────────┐</span>
-<span class="dim">├→</span> <span class="done">setup-db</span>  (done) <span class="dim">1d</span>                 <span class="dim">│</span>
-<span class="dim">│ ├→</span> <span class="open">api-docs</span>  (open) <span class="dim">1d ───────────────┤</span>
-<span class="dim">│ ├→</span> <span class="active">recipe-crud</span>  (in-progress) <span class="dim">6h ────┤ ←─┐</span>
-<span class="dim">│ │ └→</span> <span class="open">review</span>  (open) <span class="dim">1d</span> ↺ (iter 0/3) <span class="dim">──┼ ──┘</span>
-<span class="dim">│ └→</span> <span class="open">search</span>  (open) <span class="dim">1d ─────────────────┤</span>
-<span class="dim">└→</span> <span class="open">deploy</span>  (open) <span class="dim">1d ←──────────────────┘</span>
-  <span class="dim">└→</span> <span class="open">int-tests</span>  (open) <span class="dim">1d</span></pre>
-      </div>
-
-      <div class="graph-readout">
-        <span class="muted">captured locally<span class="caret"></span></span>
+        <pre><span class="done">research-copy-number</span>  (done · →25k ←4.7k ◎347k §7.7k) 1mo
+<span class="dim">├→</span> <span class="done">check-tool-availability</span>  (done · →17k ←5.8k ◎411k §7.0k) 1mo <span class="dim">──────────────────┐</span>
+<span class="dim">├→</span> <span class="done">implement-copy-number</span>  (done · →50k ←19k ◎1.6M §6.6k) 1mo                      <span class="dim">│</span>
+<span class="dim">├→</span> <span class="done">investigate-copy-number</span>  (done · →67k ←22k ◎2.3M §8.7k) 1mo <span class="dim">───────────────────┤</span>
+<span class="dim">│ ├→</span> <span class="done">analyze-statistical-framework</span>  (done · →34k ←18k ◎568k §5.2k) 1mo <span class="dim">───────────┼ ──┐</span>
+<span class="dim">│ ├→</span> <span class="done">investigate-weighted-hypergeometric</span>  (done · →26k ←7.7k ◎394k §9.2k) 1mo <span class="dim">────┼ ──┤</span>
+<span class="dim">│ ├→</span> <span class="active">research-r-phyper</span>  (in-progress · →48k ←19k ◎1.2M §11k) 1mo <span class="dim">─────────────────┼ ──┤</span>
+<span class="dim">│ │ ├→</span> <span class="active">benchmark-phyper-computational</span>  (in-progress · →42k ←21k ◎1.4M §6.5k) 1mo <span class="dim">───┼ ──┼ ──┐</span>
+<span class="dim">│ │ ├→</span> <span class="done">map-copy-number</span>  (done · →28k ←2.4k ◎315k §5.8k) 1mo <span class="dim">─────────────────────┼ ──┼ ──┤ ←─┐</span>
+<span class="dim">│ │ │ ├→</span> <span class="open">edge-case-analysis</span>  (open · →0 ←0 §20k) 1mo                              <span class="dim">│   │   │   │</span>
+<span class="dim">│ │ │ ├→</span> <span class="abandoned">integration-testing-with</span>  (abandoned · →46k ←19k ◎1.6M §1.6k) 1mo <span class="dim">──────┼ ──┼ ──┼ ──┼ ──┐</span>
+<span class="dim">│ │ │ ├→</span> <span class="open">mathematical-formulation-of</span>  (open · →17k ←3.4k ◎294k §2.7k) 1mo         <span class="dim">│   │   │   │   │</span>
+<span class="dim">│ │ │ ├→</span> <span class="active">mathematical-verification-of</span>  (in-progress · →59k ←18k ◎2.4M §8.4k) 1mo <span class="dim">────┼ ──┼ ──┼ ──┼ ──┤</span>
+<span class="dim">│ │ │ ├→</span> <span class="active">performance-benchmarking-parameter</span>  (in-progress · →43k ←21k ◎1.5M §8.4k) 1mo <span class="dim">┼ ──┼ ──┼ ──┼ ──┤</span>
+<span class="dim">│ │ │ ├→</span> <span class="done">robust-r-code</span>  (done · →23k ←3.3k ◎374k §4.6k) 1mo                       <span class="dim">│   │   │   │   │</span>
+<span class="dim">│ │ │ ├→</span> <span class="done">statistical-validation-framework</span>  (done · →23k ←3.0k ◎312k §4.7k) 1mo    <span class="dim">│   │   │   │   │</span>
+<span class="dim">│ │ │ └→</span> <span class="active">synthesize-parameter-mapping</span>  (in-progress · →41k ←17k ◎1.6M §8.5k) 29d <span class="dim">──┼ ──┼ ──┼ ──┼ ←─┘</span>
+<span class="dim">│ │ ├→</span> <span class="done">research-r-alternatives</span>  (done · →36k ←17k ◎613k §6.5k) 1mo <span class="dim">──────────────┼ ──┼ ──┤   │</span>
+<span class="dim">│ │ ├→</span> <span class="active">validate-weighted-phyper</span>  (in-progress · →71k ←41k ◎2.0M §37k) 1mo <span class="dim">─────────┼ ──┼ ──┤   │</span>
+<span class="dim">│ │ ├→</span> <span class="done">verify-weighted-phyper</span>  (done · →46k ←19k ◎1.1M §8.2k) 1mo <span class="dim">───────────────┼ ──┼ ──┤   │</span>
+<span class="dim">│ │ └→</span> <span class="active">synthesize-r-phyper</span>  (in-progress · →0 ←0 §2.7k) 1mo <span class="dim">────────────────────────┼ ──┼ ←─┘   │</span>
+<span class="dim">│ ├→</span> <span class="done">survey-existing-copy</span>  (done · →28k ←6.3k ◎392k §6.7k) 1mo <span class="dim">──────────────────┼ ──┤       │</span>
+<span class="dim">│ └→</span> <span class="active">synthesize-copy-number</span>  (in-progress · →44k ←7.5k ◎600k §5.0k) 1mo <span class="dim">───────────┼ ←─┘       │</span>
+<span class="dim">├→</span> <span class="done">investigate-gat-genomic</span>  (done · →30k ←7.9k ◎1.2M §6.5k) 1mo <span class="dim">─────────────────┤           │</span>
+<span class="dim">├→</span> <span class="done">investigate-great-rgreat</span>  (done · →22k ←5.1k ◎382k §5.7k) 1mo <span class="dim">────────────────┤           │</span>
+<span class="dim">├→</span> <span class="done">investigate-permutation-based</span>  (done · →37k ←10.0k ◎722k §7.2k) 1mo <span class="dim">──────────┤           │</span>
+<span class="dim">├→</span> <span class="done">investigate-weighted-gene</span>  (done · →30k ←6.6k ◎425k §5.2k) 1mo <span class="dim">───────────────┤           │</span>
+<span class="dim">├→</span> <span class="done">literature-search-copy</span>  (done · →22k ←6.0k ◎424k §6.9k) 1mo <span class="dim">──────────────────┤           │</span>
+<span class="dim">└→</span> <span class="active">synthesize-findings-and</span>  (in-progress · →47k ←8.9k ◎639k §7.4k) 1mo <span class="dim">←──────────┘           │</span>
+<span class="active">fix-implement-copy</span>  (in-progress · →62k ←24k ◎2.1M §1.5k) 1mo <span class="dim">──────────────────────────────────────┘</span></pre>
       </div>
     </div>
   </div>
