@@ -141,6 +141,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    white-space: nowrap;
     font-size: 11.5px;
     color: var(--muted);
     padding: 4px 10px;
@@ -161,6 +162,9 @@
   @media (max-width: 640px) {
     .nav-inner { padding: 12px 20px; }
     .nav-links { display: none; }
+  }
+  @media (max-width: 420px) {
+    .nav-status { display: none; }
   }
 
   /* ============ SHELL ============ */
@@ -1045,18 +1049,17 @@
       </div>
 
       <div class="hero-meta">
-        <span><span class="tag">MIT</span> 2,091 commits · Rust · open-source</span>
-        <span><span class="tag">v0.1</span> workgraph builds itself · <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a></span>
+        <span><span class="tag">MIT</span> Rust · open-source · <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a></span>
       </div>
 
       <div class="repo-stats" aria-label="WorkGraph repository statistics">
         <div class="repo-stat">
           <strong>2,091</strong>
-          <span>actual commits</span>
+          <span>commits</span>
         </div>
         <div class="repo-stat">
           <strong>263,112</strong>
-          <span>source lines</span>
+          <span>lines of code</span>
         </div>
         <div class="repo-stat">
           <strong>83,196</strong>
@@ -1183,9 +1186,10 @@
   </div>
 
   <p class="built-lead">
-    <strong>WorkGraph is functional and open-source</strong> (MIT, Rust, 2,091 commits).
-    We already use it for real work. It coordinates our incorporation, our writing,
-    and our research. Each item below was executed through a WorkGraph.
+    <strong>WorkGraph is functional and open-source.</strong> It is a Rust system
+    for persistent task graphs: dependency visualization, claim/execute/complete
+    workflows, live feeds, agent handoffs, and inspectable histories. We already
+    use it for incorporation, writing, grant drafting, and research.
   </p>
 
   <div class="built-grid">
@@ -1259,6 +1263,26 @@
       <span class="built-status done">live</span>
     </article>
 
+    <!-- 04 autohaiku -->
+    <article class="built-card" data-idx="04">
+      <span class="built-icon" aria-hidden="true">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+          <path d="M8 7 H26"/>
+          <path d="M8 13 H22"/>
+          <path d="M8 19 H24"/>
+          <path d="M8 25 H18"/>
+          <circle cx="26" cy="25" r="2.2" fill="currentColor" fill-opacity="0.16"/>
+        </svg>
+      </span>
+      <h3 class="built-title">Ran a local-model haiku stream</h3>
+      <p class="built-desc">
+        AutoHaiku uses WorkGraph to coordinate a few-shot prompted local
+        generator built from simple n-gram and learned recurrent models.
+        <a href="https://ulivo.poietic.life/wg/feeds/autohaiku/" class="phr-link">open haiku graph &rarr;</a>
+      </p>
+      <span class="built-status done">live</span>
+    </article>
+
   </div>
 </section>
 
@@ -1274,9 +1298,8 @@
     <div>
       <h2>Open the <i>graph</i>.<br>Read the code.</h2>
       <p>
-        WorkGraph is MIT-licensed and actively developed: 2,091 commits,
-        263,112 source lines, and 83,196 test lines in the local checkout.
-        Read the docs, clone the repo, or open the
+        WorkGraph is MIT-licensed and actively developed. Read the docs,
+        clone the repo, inspect the code, or open the
         <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live WorkGraph mirror</a>.
       </p>
     </div>
