@@ -44,10 +44,19 @@ statement.)
 Both blocks are quoted verbatim. The HTML uses `&ldquo;`, `&rdquo;`, and
 `&rsquo;` for the curly quotes/apostrophes that appeared in the filed text.
 
-Source attribution rendered on the page:
+Source attribution rendered on the page (revised after your message about
+not anthropomorphizing the company):
 > Verbatim from the Certificate of Amendment to the Certificate of
 > Incorporation of Poietic PBC, filed with the Delaware Division of
-> Corporations on April 13, 2026.
+> Corporations on April 13, 2026. ("The Corporation" in the filed text
+> refers to the three of us, not to a separate entity.)
+
+The section lead-in was revised from "Poietic PBC is a registered Delaware
+Public Benefit Corporation. Our specific public benefit purpose is on file
+with the state." to:
+> Erik, Luca, and Vaughn registered together as Poietic PBC. Below is the
+> specific public benefit purpose the three of us filed with the State of
+> Delaware.
 
 If you want a tighter or more formal attribution, edit the
 `<div class="benefit-source">` block. I optimized for "a reviewer who clicks
@@ -136,6 +145,25 @@ These were noticed while scanning the landing page; flagging for follow-up:
 7. **Nav status pill says "pbc · open source"** — fine, but consider
    linking it to the new `#public-benefit` section now that the page has
    one.
+
+8. **Anthropomorphization audit (post-message-from-Erik).** Per your
+   in-flight constraint that Poietic PBC IS the three founders and not
+   a separate institutional actor, I scanned and revised:
+   - Mission body: "Poietic builds open-source infrastructure..." -> "We build..."
+   - Public benefit lead: framed as "Erik, Luca, and Vaughn registered
+     together as Poietic PBC" rather than "Poietic PBC is a registered
+     PBC" (which read as if there were a separate institutional actor).
+   - Built card #1: "Poietic PBC was formed and structured..." (passive,
+     entity as object) -> "We formed Poietic PBC and structured it..."
+     (active, founders as subject).
+   - Hero label "Poietic PBC · est. 2026" left alone (factual identifier,
+     not an anthropomorphism).
+   - Footer "© 2026 Poietic PBC · Public Benefit Corporation · United
+     States" left alone (legal copyright notice, requires the entity name).
+   - Verbatim filed text inside the blockquote uses "the Corporation"
+     repeatedly; I cannot change verbatim quoted text, but added a
+     parenthetical to the source attribution clarifying that "The
+     Corporation" refers to the three of you.
 
 ## 5. Deployment
 
