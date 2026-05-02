@@ -44,6 +44,18 @@ Severity: live-repetition (Erik must-fix) > hero subhead > mission lead
   `View source on GitHub`, `Read the theory`); no "live" modifier here.
 - Nav, footer, hero h1.
 
+
+### Card-count check (Erik 2026-05-01)
+
+Three section-03 cards (Incorporated, Grant, PHR) cover three distinct
+domains: legal/operational, written deliverable, technical research.
+By Erik's bar, **none is redundant**, recommend keeping all three. Faint
+caveat: Card 02 (grant) carries mild recursion ("we used WorkGraph to
+apply for the grant that funds it"); defensible now that Card 01's
+incorporation trace is publicly verifiable. If Erik wants to err clean,
+Card 02 is the only drop candidate, but cutting it loses the
+shared-writing demo. My read: keep all three. Founder section also passes the distinct-question bar, leave alone.
+
 ## 4. Missing-link recommendation
 
 The published incorporation trace
