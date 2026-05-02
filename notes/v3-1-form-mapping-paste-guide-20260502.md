@@ -148,7 +148,7 @@ Status legend: **READY** = paste from v3.1 verbatim. **REMAP** = right content, 
 | §27 | AI Maturity | — | radio | v3.1 §27 | **AI First** | READY |
 | §28 | Technical feasibility | 100w | text | v3.1 §28 + §4 of this guide | **Recommended replacement** that leads with the live ulivo traces (drafted §4 below, 91w). v3.1 §28 (88w, ulivo not mentioned) is also acceptable. | REMAP (or READY if Erik prefers v3.1 §28) |
 | §29 | Risks (200w) | 200w | text | v3.1 §30 expanded | **Paste §4 §29 block from this guide (184w).** Do NOT paste v3.1 §29 (Theory of Change is not what this field asks for). | REMAP+EXPAND |
-| §30 | 3-5 key team members, roles, NO names | 100w | text | (none in v3.1) | **Paste §4 §30 block (85w).** | NEW |
+| §30 | 3-5 key team members, roles, NO names | 100w | text | (none in v3.1) | **Paste §4 §30 block (97w).** | NEW |
 | §31a-e | Partner orgs (Name + URL + Role ≤50w + Relationship) | 50w each | structured | v3.1 §31 | Optional structured field. Default: leave blank with v3.1 §31 paragraph in any open-text/notes box. **If form forces at least one entry**, see §4 §31 below for HPRC and IGVF entries (both existing engagements through Garrison and Pinello respectively). Do NOT list employer institutions as partners. | ERIK (decision) |
 | §32 | How will you scale | — | multiselect | v3.1 §32 | **Technical & performance maturity; Ecosystem & integration; Community-led expansion.** Optional add: **Policy & standards leadership**. v3.1 also lists Adaptation to different sectors — keep if comfortable, drop for focus. See §4 §32 below for the rationale per pick. | REMAP (multiselect, not prose) |
 | §33 | Team structure evolution | 150w | text | v3.1 §33 | Paste v3.1 §33 verbatim (127w). | READY |
@@ -217,9 +217,9 @@ Source: expanded from v3.1 §30 (100w original) by carrying through specifics al
 
 ### §30 Key team members, roles only, NO names (≤100w) — paste this, 85w
 
-> Four key roles ensure success. First, a substrate architect / lead engineer driving WorkGraph core development, executor pluggability, and the interactive computation graph visualization (full-time research software engineer, Rust and systems). Second, scientific co-leads providing reference-grade pangenomics and clinical-genomics depth, contributing part-time from primary academic appointments. Third, a software engineer focused on adopter-lab onboarding, integrations (Gemini, AlphaGenome via Chorus, open-weight inference), and BioBench infrastructure (full-time hire). Fourth, an organizational researcher conducting longitudinal ethnographic case studies of hybrid human-AI lab teams (part-time, drawn from founder bandwidth).
+> Four key roles ensure success. First, a substrate architect / lead engineer driving WorkGraph core development, executor pluggability, and the interactive computation graph visualization (full-time research software engineer, Rust and systems). Second, scientific co-leads providing reference-grade pangenomics and clinical-genomics depth, contributing part-time from primary academic appointments. Third, a software engineer focused on adopter-lab onboarding, integrations (Gemini, AlphaGenome via Chorus, open-weight inference), and BioBench infrastructure (full-time hire). Fourth, an organizational researcher: designs the agency framework that develops agent primitives and matches work to agent capabilities, drawing on hybrid-teams-under-uncertainty research; conducts longitudinal ethnographic case studies of adopter labs (part-time).
 
-Verifications: no individual names, no PI language, no em-dashes; describes expertise that ensures success per the form prompt; matches §38 personnel structure (3 founders part-time + 2 RSE full-time + 1 AI/bio RS over 24 months).
+Verifications: no individual names, no PI language, no em-dashes; describes expertise that ensures success per the form prompt; matches §38 personnel structure (3 founders part-time + 2 RSE full-time + 1 AI/bio RS over 24 months); 4th role updated 2026-05-02 to lead with agency-framework design (Tan-shaped subsystem) rather than passive ethnography.
 
 ### §31 Partners — Erik's call
 
@@ -320,7 +320,7 @@ Save / submit.
 
 - [x] Every form question §1-§53 + certification covered in the paste guide table (table §3 has 53 form-question rows + Cert)
 - [x] §29 Risks content ≤200w (drafted at 184w; manual recount confirmed)
-- [x] §30 team roles ≤100w, no individual names (drafted at 85w; "Garrison", "Pinello", "Tan" do not appear in §30 block)
+- [x] §30 team roles ≤100w, no individual names (drafted at 97w after 2026-05-02 4th-role rewrite to lead with agency-framework design; "Garrison", "Pinello", "Tan" do not appear in §30 block)
 - [x] §32 multiselect choices recommended (top 3 + optional 4th + commentary on v3.1's 4th)
 - [x] §53 explanation drafted for govt-persons (drafted at 75w; covers UTHSC + UCL + MGH/HMS/Broad)
 - [x] All multiselect / radio fields have recommended answers (§12, §13, §14, §15, §22, §24, §27, §32, §37, §48-§52 all in §2 mechanical block)
