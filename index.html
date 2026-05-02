@@ -464,20 +464,17 @@
     background: linear-gradient(to bottom, transparent, var(--bg));
   }
   .graph-embed {
-    --feed-scale: 0.82;
-    width: calc(100% / var(--feed-scale));
-    height: calc((100% + 260px) / var(--feed-scale));
+    width: 100%;
+    height: calc(100% + 260px);
     border: 0;
     display: block;
-    transform: translate(0, -260px) scale(var(--feed-scale));
-    transform-origin: top left;
+    margin-top: -260px;
     background: var(--bg);
   }
   @media (max-width: 520px) {
     .graph-embed {
-      --feed-scale: 0.72;
-      height: calc((100% + 236px) / var(--feed-scale));
-      transform: translate(0, -236px) scale(var(--feed-scale));
+      height: calc(100% + 236px);
+      margin-top: -236px;
     }
   }
 
