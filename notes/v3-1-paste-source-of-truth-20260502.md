@@ -1,7 +1,7 @@
 ---
 note_id: v3-1-paste-source-of-truth
 date: 2026-05-02
-target: workgraph_google_application_FINAL_v3_1.md (commit fe760fb on main)
+target: workgraph_google_application_FINAL_v3_1.md (commits fe760fb + e8e8fa8 on main)
 verdict: paste-ready
 ---
 
@@ -21,7 +21,7 @@ purposes** (still useful as decision log).
 | §5b | `[leave blank]` literal | empty (line blank) | n/a |
 | §8d Erik tz | `US Eastern (ET)` | `US Central (CT)` | n/a |
 | §9d Luca tz | `US Eastern (ET)` | unchanged (Luca at MGH/Boston) | n/a |
-| §15 stage | `Proof of Concept / Preliminary Results` | `Validated Methodology` | n/a |
+| §15 stage | `Proof of Concept / Preliminary Results` | unchanged (Erik correction: paste guide's promotion to Validated Methodology was wrong; PoC is the honest answer given §29 risks and §43-§46 milestones build validation over 36 months) | n/a |
 | §17c Tan line | "research on hybrid teams... methodological frame" | "drives WorkGraph's agency framework, the subsystem developing agent primitives" | 74 / 75 |
 | §26 Erik citations | `~72,000 Google Scholar citations` | `~72,000 citations` | — |
 | §26 Erik NSF | `leads the NSF PPoSS LARGE award ($5M) for computational pangenomics` | `leads NSF PPoSS LARGE ($5M) for pangenomics` | — |
@@ -45,12 +45,21 @@ preserves it in history if reviewer reference is ever needed.
 - No recursion claim ("drafted using WorkGraph", etc.)
 - CRISPRme / Casgevy framing precise (independent identification of off-target before FDA approval; no implication of direct collaboration)
 
-## Commit
+## Commits
 
-`fe760fb consolidate paste-blocking fixes into v3.1 (timezone, stage, govt-persons, agency framework)`
+`fe760fb consolidate paste-blocking fixes into v3.1` — applied 8 of the 9
+intended fixes plus initially also promoted §15 to Validated Methodology
+(later reverted, see next commit).
 
-Pushed to `origin/main` (`git@github.com:poietic-pbc/google_ai_competition.git`).
-New commit on top of `986222f`; nothing amended.
+`e8e8fa8 revert §15 stage to 'Proof of Concept / Preliminary Results'
+per Erik` — Erik flagged that the paste-guide's §15 promotion was wrong:
+form definition of Validated Methodology applies to components (vg,
+PGGB, CRISPRme), not to the proposed longitudinal hybrid coordination
+work that this grant funds validating. PoC is the honest answer.
+
+Both commits pushed to `origin/main`
+(`git@github.com:poietic-pbc/google_ai_competition.git`). New commits on
+top of `986222f`; nothing amended.
 
 ## Paste guidance for Erik
 
