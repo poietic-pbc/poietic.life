@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poietic · infrastructure for hybrid human-AI science</title>
+<title>Poietic · human-machine collaboration made legible</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -281,6 +281,12 @@
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+  }
+  @media (max-width: 420px) {
+    .hero-cta .btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
   .btn {
     display: inline-flex;
@@ -644,6 +650,17 @@
     .repo-stats {
       width: calc(100vw - 40px);
       max-width: calc(100vw - 40px);
+    }
+    .hero-cta {
+      width: 100%;
+      max-width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .hero-cta .btn {
+      width: 100%;
+      max-width: 320px;
+      justify-content: center;
     }
     .hero-sub,
     .hero-meta {
@@ -1029,6 +1046,7 @@
       <a href="#built">what we've built</a>
       <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a>
       <a href="https://graphwork.github.io/">workgraph ↗</a>
+      <a href="https://graphwork.github.io/theory/">theory ↗</a>
       <a href="https://github.com/graphwork/workgraph">github ↗</a>
     </div>
     <div class="nav-status">
@@ -1042,16 +1060,17 @@
 <section class="shell">
   <div class="hero">
     <div class="hero-copy">
-      <div class="hero-label">Poietic PBC · est. 2026</div>
+      <div class="hero-label">Poietic PBC · public benefit</div>
       <h1>
-        Infrastructure for <i>hybrid</i><br>
-        human &amp; AI <span class="mono">science</span>.
+        Human-machine<br>
+        <i>collaboration</i><br>
+        made <span class="mono">legible</span>.
       </h1>
       <p class="hero-sub">
-        Persistent coordination graphs for hybrid human-AI work. Humans and
-        agents claim, execute, hand off, and complete interdependent tasks while
-        WorkGraph records the graph, live feeds, decisions, artifacts, and
-        histories that make the process inspectable.
+        Poietic studies and builds the conditions for people and machines to
+        work together responsively. WorkGraph is our first instrument: a live
+        proof surface where humans and agents coordinate tasks, handoffs,
+        decisions, artifacts, and histories in an inspectable graph.
       </p>
 
       <div class="hero-cta">
@@ -1071,21 +1090,21 @@
       </div>
 
       <div class="hero-meta">
-        <span><span class="tag">MIT</span> Rust · open-source · 2,000+ commits · <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live graph ↗</a></span>
+        <span><span class="tag">PBC</span> product · live demos · theory · organizational practice · <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live WorkGraph ↗</a></span>
       </div>
 
-      <div class="repo-stats" aria-label="WorkGraph repository statistics">
+      <div class="repo-stats" aria-label="Poietic positioning summary">
         <div class="repo-stat">
-          <strong>Dependency graph</strong>
-          <span>task structure</span>
+          <strong>Product</strong>
+          <span>WorkGraph</span>
         </div>
         <div class="repo-stat">
-          <strong>Live feeds</strong>
-          <span>work in motion</span>
+          <strong>Practice</strong>
+          <span>used internally</span>
         </div>
         <div class="repo-stat">
-          <strong>Inspectable histories</strong>
-          <span>decisions and artifacts</span>
+          <strong>Theory</strong>
+          <span>legible collaboration</span>
         </div>
       </div>
     </div>
@@ -1120,25 +1139,31 @@
 
   <div class="mission-grid">
     <div class="mission-lead">
-      The next breakthrough in AI for science is not better models.<br>
-      It is better <i>organization</i>.
+      Poietic is not a single tool.<br>
+      It is an organization for <i>legible collaboration</i>.
     </div>
     <div class="mission-body">
       <p>
-        AI agents can now search literature, write code, analyze data, and design molecules.
-        But complex scientific problems require <em>teams</em> of agents and humans coordinating
-        across days or weeks. No existing tool provides this coordination.
+        AI agents can now search literature, write code, analyze data, and design
+        molecules. But the durable problem is organizational: how people and
+        machines coordinate across days or weeks, preserve judgment, expose
+        evidence, and stay responsive to participants.
       </p>
       <p>
-        We build open-source infrastructure that makes hybrid human-AI research
+        We build open-source products, live demonstrations, and organizational
+        methods that make hybrid human-AI work
         <strong>auditable, reproducible, and inspectable</strong>. Our first product is
-        <a href="https://graphwork.github.io/">WorkGraph</a>, a Rust task-coordination
-        system where humans and AI agents work in the same dependency graph, with
-        claims, execution logs, handoffs, completions, artifacts, and histories
-        preserved for review.
+        <a href="https://graphwork.github.io/">WorkGraph</a>: a Rust task-coordination
+        system where humans and AI agents work in the same dependency graph,
+        with claims, execution logs, handoffs, completions, artifacts, and
+        histories preserved for review.
       </p>
       <p>
-        Poietic PBC exists to make human and machine collaboration
+        WorkGraph is the instrument, not the whole institution. It gives
+        Poietic a proof surface for the
+        <a href="https://graphwork.github.io/theory/">theory of organizational patterns</a>:
+        product, demos, research practice, and organizational design should all
+        make human and machine collaboration
         <strong>legible and responsive to its participants</strong>. That public-benefit
         purpose is the operating constraint: the tools should expose the work,
         the handoffs, the failures, and the evidence trail.
@@ -1213,10 +1238,11 @@
   </div>
 
   <p class="built-lead">
-    <strong>WorkGraph is functional, MIT-licensed, and open-source.</strong> It
-    provides dependency visualization, live feeds, claim/execute/complete
-    workflows, agent handoffs, and inspectable histories. We use it for
-    incorporation, writing, grant drafting, and research coordination.
+    <strong>WorkGraph is Poietic's first product and live demo surface.</strong> It
+    is functional, MIT-licensed, and open-source, with dependency visualization,
+    live feeds, claim/execute/complete workflows, agent handoffs, and inspectable
+    histories. We use it to run incorporation, writing, grant drafting, and
+    research coordination in public enough to be evaluated.
   </p>
 
   <div class="built-grid">
@@ -1323,11 +1349,14 @@
 
   <div class="cta-inner">
     <div>
-      <h2>Open the <i>graph</i>.<br>Read the code.</h2>
+      <h2>Inspect the <i>instrument</i>.<br>Evaluate the practice.</h2>
       <p>
-        WorkGraph is MIT-licensed and actively developed. Read the docs,
-        clone the repo, inspect the code, or open the
-        <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live WorkGraph mirror</a>.
+        WorkGraph is MIT-licensed and actively developed by Poietic. Read the
+        docs, clone the repo, inspect the code, read the
+        <a href="https://graphwork.github.io/organizational-patterns.html">organizational patterns paper</a>,
+        or open the
+        <a href="https://ulivo.poietic.life/wg/feeds/workgraph-itself/">live WorkGraph mirror</a>
+        to see our collaboration system in use.
       </p>
     </div>
     <div class="cta-actions">
