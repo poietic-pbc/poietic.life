@@ -197,9 +197,8 @@
     .hero h1 { order: 2; margin-bottom: 0; }
     .hero-sub { order: 3; }
     .hero-cta { order: 4; margin-top: 8px; }
-    .hero-meta { order: 5; margin-top: 0; }
-    .graph-wrap { order: 6; }
-    .repo-stats { order: 7; margin-top: 0; max-width: none; }
+    .graph-wrap { order: 5; }
+    .repo-stats { order: 6; margin-top: 0; max-width: none; }
   }
 
   .hero-label {
@@ -250,30 +249,6 @@
     max-width: 60ch;
     line-height: 1.65;
     text-wrap: pretty;
-  }
-
-  .hero-meta {
-    margin-top: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-size: 12px;
-    color: var(--muted);
-    font-weight: 300;
-  }
-  .hero-meta span { display: inline-flex; align-items: center; gap: 10px; }
-  .hero-meta a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .hero-meta a:hover { color: var(--fg); }
-  .hero-meta .tag {
-    color: var(--fg-dim);
-    border: 1px solid var(--border-2);
-    border-radius: 2px;
-    padding: 1px 6px;
-    font-size: 10.5px;
-    letter-spacing: 0.5px;
   }
 
   .hero-cta {
@@ -474,18 +449,18 @@
   .graph-embed {
     --feed-scale: 0.82;
     width: calc(100% / var(--feed-scale));
-    height: calc((100% + 260px) / var(--feed-scale));
+    height: calc((100% + 198px) / var(--feed-scale));
     border: 0;
     display: block;
-    transform: translate(0, -260px) scale(var(--feed-scale));
+    transform: translate(0, -198px) scale(var(--feed-scale));
     transform-origin: top left;
     background: var(--bg);
   }
   @media (max-width: 520px) {
     .graph-embed {
       --feed-scale: 0.72;
-      height: calc((100% + 236px) / var(--feed-scale));
-      transform: translate(0, -236px) scale(var(--feed-scale));
+      height: calc((100% + 184px) / var(--feed-scale));
+      transform: translate(0, -184px) scale(var(--feed-scale));
     }
   }
 
@@ -643,7 +618,6 @@
     .hero h1,
     .hero-sub,
     .hero-cta,
-    .hero-meta,
     .repo-stats,
     .mission-lead,
     .mission-body p,
@@ -670,14 +644,9 @@
       max-width: 320px;
       justify-content: center;
     }
-    .hero-sub,
-    .hero-meta {
+    .hero-sub {
       width: min(34ch, calc(100vw - 40px));
       max-width: min(34ch, calc(100vw - 40px));
-    }
-    .hero-meta span {
-      flex-wrap: wrap;
-      row-gap: 4px;
     }
   }
 
@@ -1094,10 +1063,6 @@
           <span class="arrow">→</span>
         </a>
         <a class="btn" href="#mission">Read the mission</a>
-      </div>
-
-      <div class="hero-meta">
-        <span><span class="tag">PBC</span> product · practice · theory · organizational work</span>
       </div>
 
       <div class="repo-stats" aria-label="Poietic positioning summary">
