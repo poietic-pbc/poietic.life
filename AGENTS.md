@@ -6,20 +6,22 @@ to `origin/main` when the requested change is complete.
 
 ## WorkGraph First
 
-Use WorkGraph for nontrivial work. Research, review, copy exploration, fact
-checking, bug reports, and multi-step investigations should be represented as
-`wg` tasks so the trace is inspectable.
+Use the WorkGraph task workflow for nontrivial site work. Research, review,
+copy exploration, fact checking, bug reports, and multi-step investigations
+should be represented as `wg` tasks so the trace is inspectable. Keep simple,
+single-file edits inline; create tasks when the work needs a durable record,
+handoff, decomposition, review, or follow-up.
 
-In this repo, plain `wg` talks to the Poietic website graph. Use it for site
-tasks:
+Graph directories matter. In `/home/erik/poietic.life`, plain `wg` talks to the
+Poietic site graph. Use it for Poietic website tasks:
 
 ```sh
 wg status
 wg add "Task title" --id task-id -d "..." --deliverable notes/task-id.md --no-place
 ```
 
-For upstream WorkGraph product tasks, do not use plain `wg` from this checkout.
-Use the WorkGraph graph explicitly:
+For upstream WorkGraph product tasks, do not use plain `wg` from
+`/home/erik/poietic.life`. Use the upstream WorkGraph graph explicitly:
 
 ```sh
 wg --dir /home/erik/workgraph/.wg status
@@ -28,7 +30,8 @@ wg --dir /home/erik/workgraph/.wg add "Task title" --id task-id -d "..." --deliv
 
 ## Editing The Site
 
-Use the clean live-edit worktree for website changes:
+Make page edits in the clean live-edit worktree, not in dirty agent worktrees or
+the main checkout:
 
 ```sh
 cd /tmp/poietic-life-mission-copy
@@ -36,7 +39,8 @@ git fetch origin
 git pull --ff-only origin main
 ```
 
-Make page edits there, then verify and push:
+Sync with `origin/main` before editing. Make page edits there, then verify,
+commit, and push to `main`:
 
 ```sh
 git diff --check
