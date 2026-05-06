@@ -243,6 +243,7 @@
   }
 
   .hero-sub {
+    margin: 0;
     color: var(--fg-dim);
     font-size: 14.5px;
     font-weight: 300;
@@ -250,6 +251,7 @@
     line-height: 1.65;
     text-wrap: pretty;
   }
+  .hero-sub + .hero-sub { margin-top: 14px; }
 
   .hero-cta {
     margin-top: 36px;
@@ -1046,8 +1048,12 @@
       <p class="hero-sub">
         Poietic is a semi-autonomous public-benefit organization where people
         and AI agents build tools, systems, and theory for legible collaboration.
-        WorkGraph is our first instrument: a live proof surface where humans
-        and agents coordinate tasks, handoffs, decisions, artifacts, and histories.
+      </p>
+      <p class="hero-sub">
+        Graph work is our practice. People and AI agents coordinate in a shared
+        dependency graph &mdash; claims, handoffs, decisions, artifacts, histories,
+        all preserved for review. <a href="https://graphwork.github.io/">wg</a>
+        is the open-source tool we built to do it.
       </p>
 
       <div class="hero-cta">
@@ -1125,15 +1131,15 @@
       <p>
         We build open-source products, working systems, and organizational
         methods that make hybrid human-AI work
-        <strong>auditable, reproducible, and inspectable</strong>. Our first product is
-        <a href="https://graphwork.github.io/">WorkGraph</a>: a Rust task-coordination
+        <strong>auditable, reproducible, and inspectable</strong>.
+        <a href="https://graphwork.github.io/">wg</a> is a Rust task-coordination
         system where humans and AI agents work in the same dependency graph,
         with claims, execution logs, handoffs, completions, artifacts, and
         histories preserved for review.
       </p>
       <p>
-        WorkGraph is the instrument, not the whole institution. It gives
-        Poietic a proof surface for the
+        wg is the instrument; graph work is the practice; Poietic is the
+        institution. It gives Poietic a proof surface for the
         <a href="https://graphwork.github.io/theory/">theory of organizational patterns</a>:
         product work, research practice, and organizational design should all
         make human and machine collaboration
