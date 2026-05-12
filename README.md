@@ -41,5 +41,5 @@ recognized and enable "Enforce HTTPS" once GitHub has provisioned the cert.
 
 - [poietic-pbc/deep-research-competition](https://github.com/poietic-pbc/deep-research-competition),
   the live drug-discovery competition.
-- [graphwork/workgraph](https://github.com/graphwork/workgraph), the
-  WorkGraph product.
+- [graphwork/wg](https://github.com/graphwork/wg), the
+  wg product.

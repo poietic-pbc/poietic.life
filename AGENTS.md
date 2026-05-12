@@ -4,9 +4,9 @@ This repository publishes the Poietic PBC landing page. Treat changes here as
 live-site work: keep edits small, sync before changing files, commit, and push
 to `origin/main` when the requested change is complete.
 
-## WorkGraph First
+## wg First
 
-Use the WorkGraph task workflow for nontrivial site work. Research, review,
+Use the wg task workflow for nontrivial site work. Research, review,
 copy exploration, fact checking, bug reports, and multi-step investigations
 should be represented as `wg` tasks so the trace is inspectable. Keep simple,
 single-file edits inline; create tasks when the work needs a durable record,
@@ -20,8 +20,8 @@ wg status
 wg add "Task title" --id task-id -d "..." --deliverable notes/task-id.md --no-place
 ```
 
-For upstream WorkGraph product tasks, do not use plain `wg` from
-`/home/erik/poietic.life`. Use the upstream WorkGraph graph explicitly:
+For upstream wg product tasks, do not use plain `wg` from
+`/home/erik/poietic.life`. Use the upstream wg graph explicitly:
 
 ```sh
 wg --dir /home/erik/workgraph/.wg status
@@ -50,7 +50,7 @@ git commit -m "Short imperative summary"
 git push origin HEAD:main
 ```
 
-The main checkout at `/home/erik/poietic.life` is often dirty with WorkGraph
+The main checkout at `/home/erik/poietic.life` is often dirty with wg
 state, notes, and agent worktrees. Do not use that checkout for direct live-site
 edits unless the user explicitly asks you to.
 
@@ -59,7 +59,7 @@ edits unless the user explicitly asks you to.
 - The primary page is `index.html`.
 - Keep language concrete. Avoid describing real traces as "demos" when they are
   actual operating work.
-- Live WorkGraph feeds are evidence surfaces. Link them inline or in relevant
+- Live wg feeds are evidence surfaces. Link them inline or in relevant
   cards without over-framing them.
 - Keep mobile layout readable. Do not widen all text just to fix the graph
   iframe; adjust only the graph surface when that is the issue.
@@ -68,9 +68,9 @@ edits unless the user explicitly asks you to.
 
 ## Current Important Links
 
-- WorkGraph docs: `https://graphwork.github.io/`
-- WorkGraph source: `https://github.com/graphwork/workgraph`
-- Live WorkGraph feed: `https://ulivo.poietic.life/wg/feeds/workgraph-itself/`
+- wg docs: `https://graphwork.github.io/`
+- wg source: `https://github.com/graphwork/wg`
+- Live wg feed: `https://ulivo.poietic.life/wg/feeds/workgraph-itself/`
 - Poietic website trace: `https://ulivo.poietic.life/wg/feeds/poietic-website/`
 - Incorporation trace: `https://ulivo.poietic.life/wg/feeds/incorporation-trace/index.html`
 - Grant trace: `https://ulivo.poietic.life/wg/feeds/google_ai_for_science/`
